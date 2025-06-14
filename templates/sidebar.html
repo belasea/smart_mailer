@@ -1,0 +1,56 @@
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+    <ul class="sidebar-nav" id="sidebar-nav">
+        <li class="nav-item">
+            <a class="nav-link dashboard-link" href="{% url 'campaign' %}">
+            <i class="fa fa-bullhorn"></i>
+                <span>Campaigns</span>
+            </a>
+        </li>
+        <!-- Contact -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#">
+                <i class="fas fa-user"></i>
+                <span>Contact</span>
+            </a>
+        </li>
+        <!-- More -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#setup-rule-nav" 
+            data-bs-toggle="collapse" href="#">
+                <i class="fas fa-comment-alt"></i>
+                <span> Mores </span>
+                <i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="setup-rule-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="#">
+                        <i class="fas fa-envelope" style="font-size: 13px;"></i>
+                        <span>Email</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-check-circle" style="font-size: 13px;"></i>
+                        <span>Email verification</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <!-- Account -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#">
+                <i class="fas fa-user-cog text-dark"></i>
+                <span>Account</span>
+            </a>
+        </li>
+        <!-- Login -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="login.html">
+                <i class="fas fa-sign-in-alt text-dark"></i>
+                <span>Login</span>
+            </a>
+        </li>
+    </ul>
+    <!-- Custom Button at Bottom -->
+</aside>

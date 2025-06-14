@@ -1,0 +1,109 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Campaign - {{block.super}} {% endblock %}
+
+{% block content %}
+
+    <section class="campaign-section">
+        <div class="container-fluid">
+          <h3 class="fw-bold text-center mt-2">Campaigns List</h3>
+          <hr>
+          <div class="row mb-2">
+            <div class="col">
+              <div class="float-start">
+                  <a href="{% url 'new-campaign' %}" class="btn btn-secondary">
+                    <i class="fas fa-plus"></i>
+                  </a>
+                </div>
+                <div class="float-end">
+                  <!-- Search Form -->
+                  <form class="d-flex">
+                      <div class="input-group">
+                          <input type="text" name="q" class="form-control" placeholder="Search Here ..">
+                          <button type="submit" class="btn btn-secondary">
+                              <i class="fa fa-search"></i>
+                          </button>
+                      </div>
+                  </form>
+                </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="table-responsive text-nowrap">
+                  <table class="table table-bordered table-hover">
+                      <thead class="table-dark text-white">
+                          <tr class="text-center">
+                              <th>ID</th>
+                              <th>From</th>
+                              <th>To</th>
+                              <th>Subject</th>
+                              <th>Send</th>
+                              <th>Time</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr class="text-center">
+                              <td>1</td>
+                              <td>jibon@gmail.com</td>
+                              <td>sakander@gmail.com</td>
+                              <td>New Campaign</td>
+                              <td>Send</td>
+                              <td>2 Minutes Ago</td>
+                          </tr>
+                          <tr class="text-center">
+                              <td>1</td>
+                              <td>jibon@gmail.com</td>
+                              <td>sakander@gmail.com</td>
+                              <td>New Campaign</td>
+                              <td>Send</td>
+                              <td>2 Minutes Ago</td>
+                          </tr>
+                          <tr class="text-center">
+                              <td>1</td>
+                              <td>jibon@gmail.com</td>
+                              <td>sakander@gmail.com</td>
+                              <td>New Campaign</td>
+                              <td>Send</td>
+                              <td>40 Minutes Ago</td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <nav aria-label="Page navigation example">
+                  <ul class="pagination justify-content-center">
+                      <!-- First page -->
+                      <li class="page-item">
+                          <a class="page-link" href="?page=1" tabindex="-1">FIRST</a>
+                      </li>
+
+                      <!-- Previous page -->
+                      <li class="page-item">
+                          <a class="page-link" href="?page=1" tabindex="-1">Previous</a>
+                      </li>
+
+                      <!-- Visible page links -->
+                      <li class="page-item"><a class="page-link" href="?page=1">1</a></li>
+                      <li class="page-item active"><a class="page-link" href="?page=2">2</a></li>
+                      <!-- Dots after -->
+                      <li class="page-item disabled">
+                          <a class="page-link">&hellip;</a>
+                      </li>
+
+                      <!-- Next page -->
+                      <li class="page-item">
+                          <a class="page-link" href="?page=4">Next</a>
+                      </li>
+                  </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+    </section>
+
+{% endblock %}

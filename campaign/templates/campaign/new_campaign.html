@@ -1,0 +1,114 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} New Campaign - {{block.super}} {% endblock %}
+
+{% block content %}
+
+
+      {% comment %} <section class="new-campaign py-3">
+        <div class="container-fluid">
+          <h3 class="fw-bold text-primary mb-3">📢 New Campaign</h3>
+          <!-- <hr> -->
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="card shadow-lg border-0">
+                <div class="card-body p-4">
+                  <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                      <label class="form-label fw-semibold text-muted">From</label>
+                      <input type="email" class="form-control" value="jibon@gmail.com" disabled>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="recipients" class="form-label fw-semibold text-muted">Recipients</label>
+                      <textarea name="recipients" id="recipients" class="form-control" rows="3" placeholder="Enter recipient emails separated by commas"
+                      value="{{ form.recipients.value|default:'' }}"
+                      >
+                      {{ form.recipients.errors }}
+                      </textarea>
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label fw-semibold text-muted">Subject</label>
+                      <input type="text" name="subject" class="form-control"
+                       value="{{ form.subject.value|default:'' }}"
+                       placeholder="Enter subject line">
+                       {{ form.subject.errors }}   
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label fw-semibold text-muted">Message</label>
+                      <textarea class="form-control"
+                      {{ form.message.value|default:'' }} 
+                      id="summernote" name="content">
+                    </textarea>
+                    
+                    </div>
+
+                    <div class="text-end">
+                      <button type="submit" class="btn btn-primary px-4">🚀 Send Campaign</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> {% endcomment %}
+
+      <section class="new-campaign py-3">
+        <div class="container-fluid">
+          <h3 class="fw-bold text-primary mb-3">📢 New Campaign</h3>
+          <!-- <hr> -->
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="card shadow-lg border-0">
+                <div class="card-body p-4">
+                  <form method="post">
+                        {% csrf_token %}
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label class="form-label fw-semibold text-muted">From</label>
+                                <input type="email" class="form-control" value="jibon@gmail.com" disabled>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="id_recipients" class="form-label fw-semibold text-muted">Recipients</label>
+                                <input type="text" name="recipients" id="id_recipients" class="form-control"
+                                      value="{{ form.recipients.value|default:'' }}"
+                                      placeholder="Enter comma-separated emails">
+                                {{ form.recipients.errors }}
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label for="id_subject" class="form-label fw-semibold text-muted">Subject</label>
+                                <input type="text" name="subject" id="id_subject" class="form-control"
+                                      value="{{ form.subject.value|default:'' }}"
+                                      placeholder="Enter subject line">
+                                {{ form.subject.errors }}
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label for="id_message" class="form-label fw-semibold text-muted">Message</label>
+                                <textarea name="message" id="id_message" class="form-control" rows="6"
+                                          placeholder="Type your email content here">{{ form.message.value|default:'' }}</textarea>
+                                {{ form.message.errors }}
+                            </div>
+                        </div>
+                        <div class="text-end">
+                            <button type="submit" class="btn btn-primary px-4">
+                              🚀 Send Campaign
+                            </button>
+                        </div>
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+{% endblock %}
