@@ -68,7 +68,7 @@ def new_campaign(request):
             campaign.save()
 
             messages.success(request, "✅ Campaign email sent!")
-            return redirect("new-campaign")
+            return redirect("campaign")
     else:
         form = EmailCampaignForm()
 

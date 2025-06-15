@@ -33,9 +33,11 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts.apps.AccountsConfig',
     'home.apps.HomeConfig',
     'campaign.apps.CampaignConfig',
     'contacts.apps.ContactsConfig',
+    # Default Apps ===============
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -49,6 +51,13 @@ INSTALLED_APPS = [
 ]
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
+# Custom User Model
+AUTH_USER_MODEL = 'accounts.User'
+LOGIN_URL = '/login/'
+LOGIN_URL_REDIRECT = '/'
+LOGOUT_URL = '/logout/'
+LOGOUT_REDIRECT_URL = '/'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

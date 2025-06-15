@@ -49,7 +49,7 @@
                             {% for obj in object_list %}
                                 <tr>
                                     <td class="text-center">{{ forloop.counter }}</td>
-                                    <td>{{ email }}</td>
+                                    <td class="text-center">{{ email }}</td>
                                     <td>{{ obj.subject }}</td>
                                     <td>{{ obj.message|safe|truncatechars:100 }}</td>
                                     <td class="text-center">{{ obj.created_at }}</td>

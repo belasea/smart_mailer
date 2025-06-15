@@ -67,3 +67,48 @@
     left: -7px;
     top: 5px;
 }
+
+.main-content {
+    background-color: #f8f9fa;
+    /* padding: 40px 0; */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.why-smart-mailer,
+.marketing-solution {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    margin-bottom: 30px;
+}
+
+.why-smart-mailer h3,
+.marketing-solution h3 {
+    color: #1a73e8;
+    margin-bottom: 15px;
+}
+
+.why-smart-mailer p,
+.marketing-solution p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.marketing-solution img {
+    border-radius: 10px;
+    max-width: 100%;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.marketing-solution img:hover {
+    transform: scale(1.03);
+}
+
+@media (max-width: 768px) {
+    .p-5 {
+        padding: 20px !important;
+    }   
+}
