@@ -67,48 +67,85 @@
               <div class="card shadow-lg border-0">
                 <div class="card-body p-4">
                   <form method="post">
-                        {% csrf_token %}
-                        <div class="row mb-3">
-                            <div class="col">
-                                <label class="form-label fw-semibold text-muted">From</label>
-                                <input type="email" class="form-control" value="jibon@gmail.com" disabled>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="id_recipients" class="form-label fw-semibold text-muted">Recipients</label>
-                                <input type="text" name="recipients" id="id_recipients" class="form-control"
-                                      value="{{ form.recipients.value|default:'' }}"
-                                      placeholder="Enter comma-separated emails">
-                                {{ form.recipients.errors }}
-                            </div>
+                    {% csrf_token %}
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label class="form-label fw-semibold text-muted">From</label>
+                            <input type="email" class="form-control" value="jibon@gmail.com" disabled>
                         </div>
-                        <div class="row mb-3">
-                            <div class="col-md-12">
-                                <label for="id_subject" class="form-label fw-semibold text-muted">Subject</label>
-                                <input type="text" name="subject" id="id_subject" class="form-control"
-                                      value="{{ form.subject.value|default:'' }}"
-                                      placeholder="Enter subject line">
-                                {{ form.subject.errors }}
-                            </div>
+                    </div>
+                    <!-- Subject -->
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <label for="id_subject" class="form-label fw-semibold text-muted">Subject</label>
+                            <input type="text" name="subject" id="id_subject" class="form-control"
+                                  placeholder="Enter subject line">
+                            {{ form.subject.errors }}
                         </div>
-                        <div class="row mb-3">
-                            <div class="col-md-12">
-                                <label for="id_message" class="form-label fw-semibold text-muted">Message</label>
-                                <textarea name="message" id="id_message" class="form-control" rows="6"
-                                          placeholder="Type your email content here">{{ form.message.value|default:'' }}</textarea>
-                                {{ form.message.errors }}
-                            </div>
+                    </div>
+                    <!-- Recipients -->
+                    <div class="row mb-3">
+                      <div class="col">
+                        <label for="id_recipients" class="form-label fw-semibold text-muted">Recipients</label>
+                          <textarea
+                            name="recipients"
+                            id="id_recipients"
+                            class="form-control"
+                            placeholder="Enter comma-separated emails"
+                            rows="3">{{ form.recipients.value|default_if_none:"" }}</textarea>
+                      </div>
+                    </div>
+                    <!-- Message -->
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <label for="id_message" class="form-label fw-semibold text-muted">Message</label>
+                            {{ form.message }}
+                            {{ form.message.errors }}
                         </div>
-                        <div class="text-end">
-                            <button type="submit" class="btn btn-primary px-4">
-                              🚀 Send Campaign
-                            </button>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <div class="d-grid gap-2">
+                          <button type="submit" class="btn btn-primary px-4">
+                            🚀 Send Campaign
+                          </button>
                         </div>
-                    </form>
+                      </div>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const recipientInput = document.getElementById("id_recipients");
+
+          recipientInput.addEventListener("paste", function (e) {
+            e.preventDefault();  // Stop the default paste
+
+            // Get plain text from clipboard
+            const text = (e.clipboardData || window.clipboardData).getData("text");
+
+            // Split by newlines or spaces, remove empty, trim, and join with commas
+            const cleaned = text
+              .split(/[\n\s,]+/)  // split on newline, space, or existing commas
+              .filter(email => email.trim() !== "")
+              .map(email => email.trim())
+              .join(", ");
+
+            // Insert into textarea, adding to current value if needed
+            if (recipientInput.value.trim() !== "") {
+              recipientInput.value += ", " + cleaned;
+            } else {
+              recipientInput.value = cleaned;
+            }
+          });
+        });
+      </script>
+
     
 {% endblock %}

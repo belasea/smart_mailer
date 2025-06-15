@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+{% block title %} Contact Update - {{ block.super }} {% endblock %}
+
+{% block content %}
+
+    <section class="update-contact">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-2">
+                    <div class="text-center mt-3">
+                        <h4 class="fw-bold">
+                            <a href="#">Update Contact</a>
+                            <span class="text-black-50 mx-2">||</span>
+                            <a href="{% url 'contact-list' %}">Back to Contact</a>
+                        </h4>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <form method="POST">
+                                {% csrf_token %}
+                                <div class="row my-3">
+                                    <div class="form-group col-md-6 mb-0">
+                                        {{ form.subject|as_crispy_field }}
+                                      </div>
+                                    <div class="form-group col-md-6 mb-0">
+                                        {{ form.name|as_crispy_field }}
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="form-group col-md-6 mb-0">
+                                        {{ form.email|as_crispy_field }}
+                                      </div>
+                                    <div class="form-group col-md-6 mb-0">
+                                        {{ form.phone|as_crispy_field }}
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="form-group col mb-0">
+                                        {{ form.message|as_crispy_field }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="d-grid gap-2">
+                                            <button type="submit" class="btn btn-primary px-4">
+                                                🚀 Send message
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}

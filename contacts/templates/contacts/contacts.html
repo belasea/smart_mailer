@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% block title %} Contact Us - {{ block.super }} {% endblock %}
+{% block content %}
+
+
+    <section class="contact-us">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <div class="text-center mt-3">
+                        <h4 class="fw-bold">
+                            <a href="{% url 'contact-list' %}">Contact list</a>
+                            <span class="text-black-50 mx-2">||</span>
+                            <a href="{% url 'home' %}">Back to dashboard</a>
+                        </h4>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+            <div style="box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); padding: 20px; border-radius: 8px;">
+                <div class="row">
+                    <div class="col">
+                        {% if errors %}
+                            <div class="text-center">
+                                <p class="text-canter">{{ errors }}</p>
+                            </div>
+                        {% endif %}
+                        <form id="contact-form" method="post" role="form">
+                            {% csrf_token %}
+                            <div class="control">
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input id="form_subject" type="text" name="subject" class="form-control"
+                                                    required="required" data-error="Subject is required."
+                                                    placeholder="Subject *">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <!-- Full Name -->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input id="form_fullname" type="text" name="name" class="form-control"
+                                                    required="required" data-error="Fullname is required."
+                                                    placeholder="Full name *">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--- Email -->
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input id="form_email" type="email" name="email" class="form-control"
+                                                    required="required" data-error="Valid email is required."
+                                                    placeholder="E-mail *">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <!-- Phone -->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input id="form_phone" type="tel" name="phone" class="form-control"
+                                                    placeholder="Phone *">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Message -->
+                                <div class="row mb-3">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <textarea id="form_message" name="message" class="form-control"
+                                                        placeholder="Write your message *" rows="4" required="required"
+                                                        data-error="Please, leave us a message"></textarea>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col">
+                                            <div class="d-grid gap-2">
+                                                <button type="submit" class="btn btn-primary px-4">
+                                                    🚀 Send message
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+             <br>
+             <br>
+        </div>
+    </section>
+ 
+{% endblock content %}
+
