@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'campaign.apps.CampaignConfig',
     'contacts.apps.ContactsConfig',
+    'notification.apps.NotificationConfig',
     # Default Apps ===============
     'django.contrib.admin',
     'django.contrib.auth',
@@ -81,34 +82,15 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # Global Context
+                # App name -> file name -> function name
+                'notification.notifications_context_processor.notification_value',
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'smart_mailer.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'smart_mailer_db',
-#         'USER': 'postgres',
-#         'PASSWORD': 'root',
-#         'HOST': '127.0.0.1',
-#         'PORT': '5432',
-#     }
-# }
 
 
 
@@ -172,14 +154,18 @@ MESSAGE_TAGS = {
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+try:
+    from .local_settings import *
+except ImportError:
+    pass
 
 
-# Sending E-mail Configuration ==============================
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'jibon.belasea@gmail.com'
-EMAIL_HOST_PASSWORD = 'rcqtdxesqufgebtx'  # Use app password
+# # Sending E-mail Configuration ==============================
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'jibon.belasea@gmail.com'
+# EMAIL_HOST_PASSWORD = 'rcqtdxesqufgebtx'  # Use app password
 
 

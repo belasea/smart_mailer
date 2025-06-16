@@ -3,13 +3,15 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib import messages
 from django.urls import reverse_lazy
+from notification.models import Notification
 from .forms import ContactForm, ReplayContactForm
 from .models import Contact
 from django.conf import settings
-from django.db.models import Q
 from django.core.mail import send_mail
+from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from datetime import datetime
+from smart_mailer.local_settings import BASE_URL
 
 
 # Contact Page ====================================================
@@ -26,8 +28,18 @@ def contact(request):
     
     if request.method == 'POST':
         if form.is_valid():
+            subject = form.cleaned_data['subject']
             form.save()
             messages.add_message(request, messages.SUCCESS, "Success! Thank you for your message.")
+            # Create a notification for the user
+            notification_message = f'Created : {subject}'
+            try:
+                # Set the appropriate link if needed
+                link = BASE_URL + "contact-us"
+            except:
+                link = None
+            notification = Notification(user=request.user, message=notification_message, link=link)
+            notification.save()
             return redirect('home')
             # return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
         else:

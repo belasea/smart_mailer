@@ -9,7 +9,7 @@
         </li>
         <!-- Contact -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{% url 'contact' %}">
+            <a class="nav-link collapsed" href="{% url 'contact-us' %}">
                 <i class="fas fa-user"></i>
                 <span>Contact</span>
             </a>
@@ -28,6 +28,12 @@
                         <a href="{% url 'contact-list' %}">
                             <i class="fas fa-user" style="font-size: 13px;"></i>
                             <span>Contact Us</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'user_list' %}">
+                            <i class="fas fa-user" style="font-size: 13px;"></i>
+                            <span>User Us</span>
                         </a>
                     </li>
                 {% endif %}
