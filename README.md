@@ -1,8 +1,5 @@
+<img src='static/img/email.png' alt='image missing'/>
 
-<img
-src='https://www.opportunehr.com/HRMS-blogs/wp-content/uploads/2022/05/hrms1.png'
-alt='Jayed Hossain Jibon'
-/>
 <h1 align="center" id='header'>Smart Mailer Software</h1>
 <div align="center">
 <!-- Gmail Account -->
@@ -44,17 +41,17 @@ alt='Jayed Hossain Jibon'
 
 <hr/>
 
-
-#### 01. How to run this project 
+#### 01. How to run this project
 
 ```
 How to install packages and run this django project.
 ```
+
 <details>
 <summary style="cursor:pointer">Solution</summary>
 
 ```py
-# Step 1 : Create virtualenv 
+# Step 1 : Create virtualenv
 
 # For Mac
 python3 -m venv venv
@@ -77,6 +74,7 @@ python manage.py runserver
 # Step 5 : makemigrations
 python manage.py makemigrations
 ```
+
 </details>
 
 #### 02. Django PostgreSQL
@@ -84,6 +82,7 @@ python manage.py makemigrations
 ```
 Django PostgreSQL
 ```
+
 <details>
 <summary style="cursor:pointer">Solution</summary>
 
@@ -99,7 +98,7 @@ You are now connected to database "local_db" as user "postgres".
 # Show relations
 local_db=# \d
 
-# Django Settings.py 
+# Django Settings.py
 DATABASES = {
    'default': {
        'ENGINE': 'django.db.backends.postgresql',
@@ -111,15 +110,15 @@ DATABASES = {
    }
 }
 ```
+
 </details>
-
-
 
 #### 03. Python shell script
 
 ```
 Python shell script
 ```
+
 <details>
 <summary style="cursor:pointer">Solution</summary>
 
@@ -143,4 +142,19 @@ chmod +x setup.sh
 ./setup.sh
 
 ```
+
 </details>
+
+<h3>Project ScreenShort </h3>
+<hr/>
+<img src='static/img/screenshot/01.png' alt='image missing'/>
+<img src='static/img/screenshort/02.png' alt='image missing'/>
+<img src='static/img/screenshot/03.png' alt='image missing'/>
+<img src='static/img/screenshot/04.png' alt='image missing'/>
+<img src='static/img/screenshot/05.png' alt='image missing'/>
+<img src='static/img/screenshot/06.png' alt='image missing'/>
+<img src='static/img/screenshot/07.png' alt='image missing'/>
+<img src='static/img/screenshot/08.png' alt='image missing'/>
+<img src='static/img/screenshot/09.png' alt='image missing'/>
+<img src='static/img/screenshot/10.png' alt='image missing'/>
+

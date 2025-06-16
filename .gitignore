@@ -53,6 +53,8 @@ migrations/
 env/
 venv/
 data/
+media/
+mediafile/
 staticfiles/
 
 # DB
